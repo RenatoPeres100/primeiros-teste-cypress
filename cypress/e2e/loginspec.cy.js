@@ -1,0 +1,20 @@
+describe('Organge HRM Tests', () => {
+  it('Login - Success ', () => {
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.get("[name='username']").type('Admin')
+    cy.get("[name='password']").type('admin123')
+    cy.get('.orangehrm-login-button').click()
+    cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
+    cy.get('.oxd-topbar-header-breadcrumb-module').contains('Dashboard')
+  })
+  it('Login - Fail', () => {
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.get("[name='username']").type('Admin22')
+    cy.get("[name='password']").type('admin323123')
+    cy.get('.orangehrm-login-button').click()
+    cy.get('.oxd-alert')
+   
+  })
+})
+
+//.skip é para ele pular o teste 
