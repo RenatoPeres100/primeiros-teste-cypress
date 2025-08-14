@@ -39,7 +39,7 @@ describe('Organge HRM Tests', () => {
     cy.get(selectorList.dateCloseButton).click()
     cy.get(selectorList.submitButton).eq(0).click()
     cy.get('body').should('contain', 'Successfully Update')
-    cy.get('.oxd-toast-close')
+    cy.get('.oxd-toast-close').click()
 
 
   })
