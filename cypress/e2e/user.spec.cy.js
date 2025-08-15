@@ -14,9 +14,11 @@ describe('Organge HRM Tests', () => {
     middleNameField: "[name='middleName']",
     lastNameField: "[name=lastName]",
     genericField: ".oxd-input--active",
+    genericSelectField: ".oxd-select-text-input",
     dateField: "[placeholder='yyyy-dd-mm']",
     dateCloseButton: ".--close",
     submitButton: "[type='submit']",
+    numberSelectTab: '[tabindex="3"]',
 
   }
 
@@ -37,7 +39,8 @@ describe('Organge HRM Tests', () => {
     cy.get(selectorList.genericField).eq(5).clear().type('NickName')
     cy.get(selectorList.genericField).eq(6).clear().type('2025-03-10')
     cy.get(selectorList.dateCloseButton).click()
-    cy.get(selectorList.submitButton).eq(0).click()
+    cy.get(selectorList.genericSelectField).eq(2).clear().type('Brazilian')
+    cy.get(selectorList.submitButton, selectorList.numberSelectTab).eq(0).click()
     cy.get('body').should('contain', 'Successfully Update')
     cy.get('.oxd-toast-close').click()
 
